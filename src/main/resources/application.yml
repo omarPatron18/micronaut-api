@@ -1,0 +1,29 @@
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+  application:
+    name: micro-world
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+      rapidoc:
+        paths: classpath:META-INF/swagger/views/rapidoc
+        mapping: /rapidoc/**
+tracing:
+  jaeger:
+    enabled: true
+    sampler:
+      probability: 1
+endpoints:
+  prometheus:
+    sensitive: false
